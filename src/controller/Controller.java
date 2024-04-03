@@ -8,21 +8,21 @@ import view.GetData;
 import view.PrintGroceryBasket;
 
 public class Controller {
-    GetData gd = new GetData();
-    GroceryBasket gb = new GroceryBasket();
+    GetData getData = new GetData();
+    GroceryBasket groceryBasket = new GroceryBasket();
     SplitInputData splitInputData = new SplitInputData();
     GroceryCount groceryCount = new GroceryCount();
-    LongestWord lw = new LongestWord();
-    PrintGroceryBasket pb = new PrintGroceryBasket();
+    LongestWord longestWord = new LongestWord();
+    PrintGroceryBasket printGroceryBasket = new PrintGroceryBasket();
 
     public void Start() {
-        String data = gd.getData("input.txt");
+        String data = getData.getData("input.txt");
         String[] array = splitInputData.splitInputData(data);
-        gb.putInBasket(array);
-        int count = groceryCount.groceryCount(gb.getGroceryCount());
-        String longestWord = lw.getLongestWord(gb.getGrocery());
-        pb.printGroceryBasket(gb);
-        pb.printCount(count);
-        pb.printLongestProduct(longestWord);
+        groceryBasket.putInBasket(array);
+        int count = groceryCount.groceryCount(groceryBasket.getGroceryCount());
+        String longWord = longestWord.getLongestWord(groceryBasket.getGrocery());
+        printGroceryBasket.printGroceryBasket(groceryBasket);
+        printGroceryBasket.printCount(count);
+        printGroceryBasket.printLongestProduct(longWord);
     }
 }
